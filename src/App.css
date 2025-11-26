@@ -13,10 +13,28 @@
   border: none ;
 }
 
+.primaryBtn1{
+  background: transparent;
+  padding: 8px 15px;
+  font-size: var(--bodyText);
+  color:var(--white);
+  text-align: center;
+  position: relative;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+  margin-left: 10px;
+  border: 2px solid var(--primaryClr) ;
+}
+
 .primaryBtn:hover{
   transform: translateY(-3px);
 }
-
+.primaryBtn1:hover{
+  transform: translateY(-3px);
+}
 .main_heading{
   margin-bottom: 30px;
 }

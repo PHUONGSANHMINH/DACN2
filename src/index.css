@@ -5,7 +5,7 @@
 
 
 :root {
-  --primaryClr: #fe4e37;
+  --primaryClr: #0292C6;
   --secondaryClr: #fffaf9;
   --bgClr: #f8f9fd;
   --white: #ffffff;
@@ -17,7 +17,7 @@
   --bodyText: 16px;
   --subTitle: 18px;
   --heading: 26px;
-  --fontFamily: "Lato", sans-serif;
+  --fontFamily: "Quicksand", sans-serif;
   --fontFamily1: "Libre Baskerville", serif;
   
 }

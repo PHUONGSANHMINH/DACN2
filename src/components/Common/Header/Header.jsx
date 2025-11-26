@@ -8,6 +8,7 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import Logo from "../../../assets/images/icons/Logo.png"
 import "../Header/header.css";
 
 const Header = () => {
@@ -43,7 +44,10 @@ const Header = () => {
           <Navbar expand="lg" className="p-0">
             {/* Logo Section  */}
             <Navbar.Brand>
-              <NavLink to="/"> Weekendmonks</NavLink>
+              <img 
+                src={Logo} 
+                alt="Trip Go Logo" />
+              <NavLink to="/"> Trip Go</NavLink>
             </Navbar.Brand>
             {/* End Logo Section  */}
 
@@ -65,39 +69,27 @@ const Header = () => {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <NavLink className="nav-link" to="/" >
-                    Home
+                    Trang chủ
                   </NavLink>
                   <NavLink className="nav-link" to="/" >
                     ABOUT US
                   </NavLink>
                   <NavLink className="nav-link" to="/" >
-                    TOURS
+                    Khám phá
                   </NavLink>
 
-                  <NavDropdown
-                    title="DESTINATION"
-                    id={`offcanvasNavbarDropdown-expand-lg`}
-                  >
-                   
-                      
-                    <NavLink className="nav-link text-dark" to="/" >
-                    SPAIN TOURS
-                  </NavLink>
-                  
-                   
-                  </NavDropdown>
                   <NavLink className="nav-link" to="/" >
-                    GALLERY
-                  </NavLink>
-                  <NavLink className="nav-link" to="/" >
-                    CONTACT
+                    Đặt chỗ của tôi
                   </NavLink>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
             <div className="ms-md-4 ms-2">
-              <NavLink className="primaryBtn d-none d-sm-inline-block">
-                Book Now
+              <NavLink className="primaryBtn d-none d-sm-inline-block" to="/login">
+                Đăng nhập
+              </NavLink>
+              <NavLink className="primaryBtn1 d-none d-sm-inline-block">
+                Đăng ký
               </NavLink>
               <li className="d-inline-block d-lg-none ms-3 toggle_btn">
                 <i className={open ? "bi bi-x-lg" : "bi bi-list"}  onClick={toggleMenu}></i>
