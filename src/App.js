@@ -5,6 +5,7 @@ import Header from "./components/Common/Header/Header";
 import Footer from "./components/Common/Footer/Footer";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import Filter from "./pages/Filter/Filter";
 
 function App() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/filter" element={<Filter />} />
       </Routes>
 
       {!isHideLayout && <Footer />}

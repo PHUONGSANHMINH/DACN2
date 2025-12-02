@@ -8,11 +8,14 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../../assets/images/icons/Logo.png"
 import "../Header/header.css";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -24,6 +27,17 @@ const Header = () => {
       window.removeEventListener("scroll", isSticky)
     }
   })
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLogged(!!token);
+
+    const onStorage = (e) => {
+      if (e.key === "token") setIsLogged(!!e.newValue);
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
 
   // sticky Header 
   const isSticky=(e)=>{
@@ -85,12 +99,26 @@ const Header = () => {
               </Offcanvas.Body>
             </Navbar.Offcanvas>
             <div className="ms-md-4 ms-2">
-              <NavLink className="primaryBtn d-none d-sm-inline-block" to="/login">
-                Đăng nhập
-              </NavLink>
-              <NavLink className="primaryBtn1 d-none d-sm-inline-block">
-                Đăng ký
-              </NavLink>
+              {!isLogged ? (
+                <>
+                  <NavLink className="primaryBtn d-none d-sm-inline-block" to="/login">
+                    Đăng nhập
+                  </NavLink>
+                  <NavLink className="primaryBtn1 d-none d-sm-inline-block" to="/register">
+                    Đăng ký
+                  </NavLink>
+                </>
+              ) : (
+                <NavDropdown
+                  title={<span className="avatar-circle"><i className="bi bi-person-circle"></i></span>}
+                  id="user-nav-dropdown"
+                  align="end"
+                >
+                  <NavDropdown.Item onClick={() => navigate('/profile')}>Hồ sơ</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={() => { localStorage.removeItem('token'); setIsLogged(false); navigate('/'); }}>Đăng xuất</NavDropdown.Item>
+                </NavDropdown>
+              )}
               <li className="d-inline-block d-lg-none ms-3 toggle_btn">
                 <i className={open ? "bi bi-x-lg" : "bi bi-list"}  onClick={toggleMenu}></i>
               </li>

@@ -1,10 +1,9 @@
 import React from "react";
 import "../Features/features.css";
 
-import feature1 from "../../assets/images/feature/beach-umbrella.png";
-import feature2 from "../../assets/images/feature/deal.png";
-import feature3 from "../../assets/images/feature/location.png";
-import feature4 from "../../assets/images/feature/medal.png";
+import feature1 from "../../assets/images/poster/poster-du-lich-27 1.png";
+import feature2 from "../../assets/images/poster/poster-du-lich-30 1.png";
+import feature3 from "../../assets/images/poster/Rectangle 3.png";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -17,14 +16,14 @@ const Features = () => {
     infinite: true,
     autoplay:false,
     autoplaySpeed:1500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: false,
           dots: true,
@@ -80,13 +79,6 @@ const Features = () => {
       title: "Exploring made easyt",
       des: "Book last minute, skip lines &amp; get free cancellation for easier exploring.",
     },
-
-    {
-      id: 3,
-      image: feature4,
-      title: "Travel you can trust",
-      des: "Read reviews & get reliable customer support. We're with you at every step.",
-    },
   ];
 
   return (
@@ -106,8 +98,6 @@ const Features = () => {
                         className="img-fluid"
                         alt={feature.title}
                       />
-                      <Card.Title>{feature.title}</Card.Title>
-                      <Card.Text>{feature.des}</Card.Text>
                     </Card>
                   );
                 })}

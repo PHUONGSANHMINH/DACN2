@@ -82,7 +82,7 @@ const Home = () => {
           <Row>
             <Col md="12">
               <div className="main_heading">
-                <h1> Top Destination For Your Next Vacation </h1>
+                <h1> Những địa điểm không thể bỏ lỡ </h1>
               </div>
             </Col>
           </Row>
